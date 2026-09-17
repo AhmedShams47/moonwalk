@@ -1,12 +1,12 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
-export function SkillsScene() {
+export function ProjectsScene() {
   const groupRef = useRef<THREE.Group>(null);
 
   useFrame((state) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.08;
+      groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.05;
     }
   });
 
@@ -14,10 +14,10 @@ export function SkillsScene() {
     <group ref={groupRef}>
       {/* Debug */}
       <mesh position={[0, 0, 0]}>
-        <octahedronGeometry args={[1]} />
-        <meshStandardMaterial color="#ff6b00" emissive="#ff6b00" emissiveIntensity={0.3} />
+        <icosahedronGeometry args={[1, 0]} />
+        <meshStandardMaterial color="#ffd700" wireframe />
       </mesh>
-      <ambientLight intensity={0.5} color="#ff6b00" />
+      <ambientLight intensity={0.5} color="#ffd700" />
     </group>
   );
 }
