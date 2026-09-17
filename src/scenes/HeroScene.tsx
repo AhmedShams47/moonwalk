@@ -1,6 +1,6 @@
 import { useRef, useMemo } from "react";
-import { useFrame, useLoader } from "@react-three/fiber";
-import { VideoTexture, Float } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { useVideoTexture, Float } from "@react-three/drei";
 import * as THREE from "three";
 import { MeshPhysicalMaterial } from "three";
 import { gsap } from "gsap";
@@ -33,7 +33,7 @@ export function HeroScene() {
   }, []);
 
   // Load intro video as texture
-  const videoTexture = useLoader(VideoTexture, "/videos/dragon-intro.mp4");
+  const videoTexture = useVideoTexture("/videos/dragon-intro.mp4");
 
   useFrame((state) => {
     if (dragonGroupRef.current) {

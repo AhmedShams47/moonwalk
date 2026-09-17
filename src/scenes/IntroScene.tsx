@@ -1,6 +1,6 @@
 import { useRef, useMemo } from "react";
-import { useFrame, useLoader } from "@react-three/fiber";
-import { VideoTexture } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { useVideoTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { MeshPhysicalMaterial } from "three";
 import { gsap } from "gsap";
@@ -11,7 +11,7 @@ export function IntroScene() {
   const eyesRef = useRef<THREE.Mesh>(null);
 
   // Load dragon eye video
-  const texture = useLoader(VideoTexture, "/videos/dragon-eye-bg.mp4");
+  const texture = useVideoTexture("/videos/dragon-eye-bg.mp4");
   
   const eyeMaterial = useMemo(() => {
     return new MeshPhysicalMaterial({

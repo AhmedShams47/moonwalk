@@ -257,14 +257,10 @@ html {
 .crown-canvas:active {
   cursor: grabbing;
 }
-/* Cinematic canvas container */
-canvas {
-  width: 100vw;
-  height: 100vh;
+/* Do not add a global canvas rule here — it collapses the WebGL size to 0x0 */
+.cinematic-wrap {
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  inset: 0;
 }
 
 /* Scroll sections */

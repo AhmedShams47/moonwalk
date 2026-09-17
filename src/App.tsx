@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,19 +13,6 @@ import { HeroScene } from "@/scenes/HeroScene";
 import { SkillsScene } from "@/scenes/SkillsScene";
 import { ContactScene } from "@/scenes/ContactScene";
 
-// Scene wrapper with scroll position
-function SceneContainer({
-  children,
-  start,
-  end,
-}: {
-  children: React.ReactNode;
-  start: string;
-  end: string;
-}) {
-  return <div data-scroll data-start={start} data-end={end}>{children}</div>;
-}
-
 const queryClient = new QueryClient();
 
 const CinematicView = () => {
@@ -32,19 +20,18 @@ const CinematicView = () => {
 
   return (
     <CinematicCanvas>
-      {/* Scroll sections */}
-      <SceneContainer start="100px" end="100vh">
+      <Suspense fallback={null}>
         <IntroScene />
-      </SceneContainer>
-      <SceneContainer start="100px" end="100vh">
+      </Suspense>
+      <Suspense fallback={null}>
         <HeroScene />
-      </SceneContainer>
-      <SceneContainer start="100px" end="100vh">
+      </Suspense>
+      <Suspense fallback={null}>
         <SkillsScene />
-      </SceneContainer>
-      <SceneContainer start="100px" end="100vh">
+      </Suspense>
+      <Suspense fallback={null}>
         <ContactScene />
-      </SceneContainer>
+      </Suspense>
     </CinematicCanvas>
   );
 };

@@ -1,6 +1,6 @@
 import { useRef, useMemo } from "react";
-import { useFrame, useLoader } from "@react-three/fiber";
-import { VideoTexture, Float } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { useVideoTexture, Float } from "@react-three/drei";
 import * as THREE from "three";
 import { gsap } from "gsap";
 
@@ -8,7 +8,7 @@ export function SkillsScene() {
   const designGroupRef = useRef<THREE.Group>(null); // Dragon 01 - Warm
   const techGroupRef = useRef<THREE.Group>(null);  // Dragon 02 - Cool
 
-  const fireVideo = useLoader(VideoTexture, "/videos/dragon-intro.mp4");
+  const fireVideo = useVideoTexture("/videos/dragon-intro.mp4");
 
   // Hologram shader for Dragon 02
   const holoShader = useMemo(() => ({
